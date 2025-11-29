@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 :root {
-    --primary: #7F2ED5;
+    --primary: #8d04ec ; /* #7F2ED5   #6526a3 */
     --bg: #060709;
     --text: #FFFFFF;
     --opacity-low: 0.5;
@@ -193,7 +193,7 @@ h1, h2, h3, p {
     flex-shrink: 0;
     border-radius: 50%;
     background-image: url("images/Image01.jpeg");
-    border: 5px solid #7F2ED5  ;
+    border: 5px solid --var(--primary)  ;
     background-size: cover;
     background-position: center;
     margin-bottom: 20px;
@@ -302,7 +302,7 @@ h1, h2, h3, p {
     gap: 20px;
 }
 
-.button-text, .button-text-contact {
+.button-text {
     padding: 10px 20px;
     background-color: var(--primary);
     border-radius: 50px;
@@ -314,18 +314,13 @@ h1, h2, h3, p {
     display: inline-flex; 
     align-items: center;
     text-align: center;
-    white-space: nowrap; 
-}
-.button-text a, .button-text-contact a {
-    color: var(--bg);
+    white-space: nowrap;
     text-decoration: none;
 }
 
-
-.button-text:hover, .button-text-contact:hover {
+.button-text:hover {
     background-color: #9c4eff;
 }
-
 
 .project-photo-area {
     flex: 1;
@@ -356,18 +351,30 @@ h1, h2, h3, p {
 
 .buttons-area-contact {
     display: flex;
-    gap: 20px;
     justify-content: center;
-    margin-bottom: 100px;
-    align-items: center;
-    text-align: center;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
 .button-text-contact {
-    padding: 30px 40px; 
+    padding: 30px 50px;
+    background-color: var(--primary);
+    border-radius: 50px;
+    color: var(--bg);
+    font-weight: 700;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    gap: 5px;
+    display: inline-flex; 
+    align-items: center;
+    text-align: center;
+    white-space: nowrap;
+    text-decoration: none;
 }
 
-
+.button-text-contact:hover {
+    background-color: #9c4eff;
+}
 .footer {
     opacity: 0.5;
     padding: 20px 0;
@@ -387,6 +394,7 @@ h1, h2, h3, p {
     .about-container {
         flex-direction: column;
         text-align: center;
+        gap: 30px;
     }
     
     .about-me-tittle {
@@ -395,14 +403,19 @@ h1, h2, h3, p {
     
     .photo {
         margin-bottom: 30px;
+        width: 200px;
+        height: 200px;
     }
 
     .project-area {
         flex-direction: column;
+        gap: 30px;
     }
+    
     .project-area:nth-child(even) {
         flex-direction: column;
     }
+    
     .project-area:nth-child(even) .project-photo-area {
         order: -1; 
     }
@@ -414,13 +427,9 @@ h1, h2, h3, p {
         width: 100%;
     }
 
-    .project-area:nth-child(even) {
-        flex-direction: column;
-    }
-
-
     .project-photo {
-        max-width: 500px;
+        max-width: 100%;
+        height: auto;
     }
 
     .project-item-area {
@@ -430,8 +439,14 @@ h1, h2, h3, p {
 
     .buttons-area {
         justify-content: center;
+        gap: 15px;
+    }
+    
+    .contact-tittle {
+        font-size: clamp(32px, 8vw, 55px);
     }
 }
+
 @media (max-width: 768px) {
     :root {
         --padding-sides: 16px;
@@ -439,24 +454,31 @@ h1, h2, h3, p {
 
     .banner {
         min-height: 80vh;
+        padding-top: 30px;
+        padding-bottom: 0;
     }
 
     .titulo h1 {
-        font-size: clamp(30px, 10vw, var(--font-size-h1));
+        font-size: clamp(28px, 10vw, 42px);
+        line-height: 1.1;
     }
     
     .titulo h2 {
-        font-size: clamp(20px, 6vw, var(--font-size-h2));
+        font-size: clamp(18px, 6vw, 24px);
     }
     
     .banner-social {
-        overflow-x: auto; 
-        white-space: nowrap; 
-        padding-bottom: 5px; 
-        justify-content: flex-start; 
+        overflow-x: auto;
+        white-space: nowrap;
+        padding-bottom: 5px;
+        justify-content: flex-start;
         gap: 15px;
+        margin-top: 20px;
     }
-
+    
+    .banner-social-text {
+        font-size: 14px;
+    }
 
     .photo {
         width: 160px;
@@ -466,80 +488,290 @@ h1, h2, h3, p {
 
     .skills-area {
         grid-template-columns: 1fr;
+        gap: 25px;
+        margin-top: 40px;
     }
     
     .skills-item {
         display: flex;
-        flex-direction: row; 
-        text-align: left; 
+        flex-direction: row;
+        text-align: left;
         align-items: flex-start;
         gap: 15px;
         padding: 15px 0;
     }
+    
     .skills-item .icon {
         flex-shrink: 0;
-        margin-top: 5px; 
+        margin-top: 5px;
     }
     
+    .skills-item-text h3 {
+        font-size: 18px;
+    }
+    
+    .skills-item-text p {
+        font-size: 14px;
+    }
+
     .about-me-tittle h1 {
-        font-size: 36px;
+        font-size: 32px;
+    }
+    
+    .about-me-tittle p {
+        font-size: 14px;
+    }
+
+    .project-tittle {
+        margin-top: 60px;
+        margin-bottom: 30px;
+        font-size: 32px;
     }
 
     .contact-tittle {
-        font-size: clamp(30px, 9vw, 50px);
-        margin-bottom: 20px;
+        font-size: clamp(28px, 9vw, 42px);
+        margin-bottom: 30px;
+        line-height: 1.2;
     }
 
     .buttons-area-contact {
-        margin-bottom: 60px;
-        display: block; 
+        margin-bottom: 40px;
     }
     
     .button-text-contact {
         width: 100%;
         display: flex;
         justify-content: center;
-        padding: 20px 0; 
+        padding: 20px 0;
+        font-size: 16px;
     }
     
     .buttons-area {
         justify-content: center;
+        gap: 10px;
     }
     
     .button-text {
-        flex-grow: 1; 
+        flex-grow: 1;
         justify-content: center;
-        padding: 15px 10px;
+        padding: 6px 10px;
+        font-size: 14px;
     }
 
-    .buttons-area-contact {
-        margin-bottom: 40px; 
+    .faixa {
+        height: 2rem;
     }
     
+    .faixa p {
+        font-size: 14px;
+        padding-right: 1.5rem;
+    }
 
     .footer {
-        padding: 10px 0;
+        padding: 15px 0;
         font-size: 0.8rem;
     }
 }
 
 @media (max-width: 480px) {
-    .titulo h1 {
-        font-size: clamp(26px, 12vw, var(--font-size-h1));
+    :root {
+        --padding-sides: 16px;
     }
-    
-    .titulo h2 {
-        font-size: clamp(18px, 8vw, var(--font-size-h2));
+    .container {
+        box-sizing: border-box;
+        padding: 0 var(--padding-sides);
+        width: 100%;
+        max-width: 100%;
     }
-
     .buttons-area {
         flex-direction: column;
-        gap: 10px;
+        gap: 12px;
+        width: 100%;
+        box-sizing: border-box;
     }
     
     .button-text {
         width: 100%;
         display: flex;
         justify-content: center;
+        padding: 15px 20px;
+        box-sizing: border-box;
+        min-height: 50px; 
+        font-size: 16px;
+        margin: 0;
+    }
+    .buttons-area-contact {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 0;
+    }
+    
+    .button-text-contact {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        padding: 18px 20px;
+        box-sizing: border-box;
+        min-height: 50px;
+        font-size: 16px;
+        margin: 0;
+    }
+
+    .banner-social {
+        gap: 12px;
+        padding-bottom: 10px;
+        margin-top: 25px;
+    }
+    
+    .banner-social-text {
+        font-size: 14px;
+        padding: 8px 0;
+    }
+    .titulo h1 {
+        font-size: 28px;
+        line-height: 1.2;
+        word-wrap: break-word;
+    }
+    
+    .titulo h2 {
+        font-size: 18px;
+        margin-top: 10px;
+    }
+
+    .photo {
+        width: 150px;
+        height: 150px;
+        margin-bottom: 25px;
+    }
+
+    .skills-item {
+        gap: 12px;
+        padding: 15px 0;
+        box-sizing: border-box;
+    }
+    
+    .icon {
+        width: 35px;
+        height: 35px;
+        flex-shrink: 0;
+    }
+    
+    .skills-item-text h3 {
+        font-size: 17px;
+        margin-bottom: 5px;
+    }
+    
+    .skills-item-text p {
+        font-size: 14px;
+        line-height: 1.4;
+    }
+
+    .project-item h2 {
+        font-size: 22px;
+        line-height: 1.3;
+    }
+    
+    .project-description {
+        font-size: 15px;
+        line-height: 1.5;
+        margin-bottom: 15px;
+    }
+    
+    .tecs {
+        font-size: 15px;
+        margin-bottom: 20px;
+    }
+    .contact-tittle {
+        font-size: 28px;
+        line-height: 1.3;
+        margin-bottom: 30px;
+        padding: 0 10px;
+    }
+    .faixa {
+        height: 2.5rem;
+        margin-top: 20px;
+    }
+    
+    .faixa p {
+        font-size: 13px;
+        padding-right: 1rem;
+        padding-left: 1rem;
+    }
+    .header-container {
+        padding: 1rem var(--padding-sides);
+    }
+    .banner-content,
+    .about-container,
+    .project-area,
+    .skills-area {
+        max-width: 100%;
+        overflow: hidden;
+    }
+}
+
+@media (max-width: 360px) {
+    :root {
+        --padding-sides: 12px;
+    }
+
+    .titulo h1 {
+        font-size: 24px;
+    }
+    
+    .titulo h2 {
+        font-size: 16px;
+    }
+
+    .button-text,
+    .button-text-contact {
+        padding: 14px 16px;
+        font-size: 15px;
+        min-height: 48px;
+    }
+
+    .contact-tittle {
+        font-size: 24px;
+    }
+
+    .project-item h2 {
+        font-size: 20px;
+    }
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.about-me,
+.skills,
+.projects,
+.contact {
+    width: 100%;
+    overflow: hidden;
+}
+
+@media (max-width: 480px) {
+    .banner .container {
+        padding: 0 var(--padding-sides);
+    }
+    
+    .banner-content {
+        width: 100%;
+        padding: 0;
+    }
+}
+@media (max-width: 480px) {
+    .banner-social {
+        flex-wrap: wrap;
+    }
+    
+    .banner-social-text {
+        flex: 0 0 auto;
     }
 }
