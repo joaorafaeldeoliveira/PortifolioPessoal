@@ -100,3 +100,41 @@ ScrollTrigger.create({
         ease: "power2.inOut", 
     }
 });
+
+const projectItems = gsap.utils.toArray(".project-area");
+
+projectItems.forEach((project, index) => {
+    const isEven = index % 2 === 0;
+    const tl = gsap.timeline({
+        scrollTrigger: {
+            trigger: project,
+            start: "top 80%",
+            toggleActions: "play none none none"
+        }
+    });
+
+    tl.from(project.querySelector(".project-item-area"), {
+        x: isEven ? -100 : 100,
+        opacity: 0,
+        duration: 1,
+        ease: "power3.out"
+    }, 0);
+
+    tl.from(project.querySelector(".project-photo"), {
+        scale: 0.8,
+        opacity: 0,
+        duration: 1.2,
+        ease: "back.out(1.7)"
+    }, 0.2);
+
+    tl.from(project.querySelectorAll(".project-item h2, .project-description, .tecs, .buttons-area"), {
+        y: 30,
+        opacity: 0,
+        stagger: 0.1,
+        duration: 0.6,
+        ease: "power2.out"
+    }, 0.3);
+
+
+   
+});
