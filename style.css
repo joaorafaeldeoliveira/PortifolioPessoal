@@ -133,6 +133,7 @@ h1, h2, h3, p {
     font-weight: 800;
     gap: 10px 15px;
 }
+
 .banner-social-text {
     cursor: pointer;
     gap: 5px;
@@ -145,11 +146,18 @@ h1, h2, h3, p {
     overflow: hidden;
     text-overflow: ellipsis;
 }
+.banner-social-text:hover a,
+.banner-social-text:hover svg {
+    color: #532083;
+    transition: color 0.5s ease;
+}
+
 
 .banner-social a {
     text-decoration: none;
     color: var(--primary);
 }
+
 
 .faixa {
     background-color: var(--primary);
@@ -171,10 +179,29 @@ h1, h2, h3, p {
     line-height: 1; 
     margin: 0; 
 }
+.particles-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; 
+}
 
+.banner {
+    position: relative;
+    overflow: hidden;
+}
 
+.banner-content {
+    position: relative;
+    z-index: 1;
+}
 
-
+.banner .container {
+    position: relative;
+    z-index: 2;
+}
 .about-me {
     padding: 100px 0;
 }
@@ -308,7 +335,8 @@ h1, h2, h3, p {
     border-radius: 50px;
     color: var(--bg);
     font-weight: 700;
-    transition: background-color 0.3s ease;
+    transition:  background-color 1s ease,
+    color 1s ease;
     cursor: pointer;
     gap: 5px;
     display: inline-flex; 
@@ -318,8 +346,11 @@ h1, h2, h3, p {
     text-decoration: none;
 }
 
-.button-text:hover {
-    background-color: #9c4eff;
+.button-text:hover,
+.button-text-contact:hover {
+    background-color: #532083;
+    color: white;
+
 }
 
 .project-photo-area {
@@ -341,7 +372,7 @@ h1, h2, h3, p {
 
 .contact-tittle {
     opacity: 90%;
-    font-size: clamp(36px, 8vw, 65px);
+    font-size: clamp(36px, 8vw, 62px);
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -362,7 +393,8 @@ h1, h2, h3, p {
     border-radius: 50px;
     color: var(--bg);
     font-weight: 700;
-    transition: background-color 0.3s ease;
+    transition:  background-color 1s ease,
+    color 1s ease;
     cursor: pointer;
     gap: 5px;
     display: inline-flex; 
@@ -372,9 +404,7 @@ h1, h2, h3, p {
     text-decoration: none;
 }
 
-.button-text-contact:hover {
-    background-color: #9c4eff;
-}
+
 .footer {
     opacity: 0.5;
     padding: 20px 0;
